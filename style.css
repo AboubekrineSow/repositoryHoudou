@@ -1,0 +1,83 @@
+body {
+  font-family: 'Orbitron', sans-serif;
+  margin: 0;
+  padding: 0;
+  background: #111;
+  color: #fff;
+}
+
+.header {
+  background: #222;
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nav a {
+  color: #0f0;
+  margin-left: 15px;
+  text-decoration: none;
+}
+
+.home-section, .pricing-section, .payment-confirmation-section, .key-login-section, .footer {
+  padding: 40px;
+  text-align: center;
+}
+
+.btn-primary, .btn-secondary {
+  display: inline-block;
+  margin-top: 20px;
+  padding: 10px 20px;
+  background: #0f0;
+  color: #111;
+  border: none;
+  border-radius: 5px;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.pricing-cards {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  align-items: center;
+}
+
+.pricing-card {
+  background: #222;
+  padding: 20px;
+  border-radius: 8px;
+  width: 300px;
+}
+
+.key-input {
+  margin-top: 10px;
+  padding: 10px;
+  width: 250px;
+}
+
+.login-message {
+  margin-top: 10px;
+}
+
+.hidden {
+  display: none;
+}
+
+.game-list {
+  margin-top: 30px;
+}
+
+.game-item {
+  background: #333;
+  padding: 20px;
+  margin: 10px auto;
+  border-radius: 8px;
+  width: 300px;
+}
+
+.game-item h4 {
+  margin: 0 0 10px;
+  color: #0f0;
+}

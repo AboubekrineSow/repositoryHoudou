@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>🚀 Rocket Games | Prédictions de Jeux - Payez et Gagnez</title>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Header -->
+  <header class="header">
+    <div class="logo">🚀 Rocket Games</div>
+    <nav class="nav">
+      <a href="#home">Accueil</a>
+      <a href="#games">Jeux</a>
+      <a href="#pricing">Paiement</a>
+      <a href="#key">Accéder</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <!-- Accueil -->
+  <section id="home" class="home-section">
+    <h1>Bienvenue sur Rocket Games</h1>
+    <p>Débloquez les secrets des jeux 1XBET : Apple of Fortune, Crash et plus !</p>
+    <div class="promo-code">
+      <p>Utilisez le code promo <strong>HDU10</strong> pour obtenir des bonus exclusifs !</p>
+    </div>
+    <a href="#pricing" class="btn-primary">Commencer Maintenant</a>
+  </section>
+
+  <!-- Paiement -->
+  <section id="pricing" class="pricing-section">
+    <h2>Accès Premium</h2>
+    <p>Payez pour obtenir une clé d'accès valable 7 jours.</p>
+    <div class="pricing-cards">
+      <div class="pricing-card">
+        <h3>Option Mauritanie 🇲🇷</h3>
+        <p>Contacte-moi sur Telegram pour payer !</p>
+        <p class="price">~ 370 MRU / semaine</p>
+        <a href="https://t.me/Leroisdugame" target="_blank" class="btn-secondary">Contacter sur Telegram</a>
+      </div>
+      <div class="pricing-card">
+        <h3>Option Internationale 🌍</h3>
+        <p>Payez directement par PayPal :</p>
+        <p class="price">10 $ / semaine</p>
+        <a href="https://www.paypal.com/ncp/payment/G5BHTD9NEVDA4" target="_blank" class="btn-secondary" id="paypalLink">Payer avec PayPal</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Confirmation de Paiement -->
+  <section id="payment" class="payment-confirmation-section">
+    <h2>Confirmez votre Paiement</h2>
+    <p>Après avoir payé, cliquez ci-dessous pour générer votre clé.</p>
+    <button id="generateKeyBtn" class="btn-primary" onclick="generateKey()" disabled>Générer Ma Clé</button>
+    <div id="generatedKey" class="key-display hidden"></div>
+    <p id="paymentStatusMessage" class="hidden"></p> <!-- Message d'erreur -->
+  </section>
+
+  <!-- Connexion avec Clé -->
+  <section id="key" class="key-login-section">
+    <h2>Connexion</h2>
+    <p>Entrez votre clé pour accéder aux jeux privés.</p>
+    <input type="text" id="keyInput" placeholder="Votre clé ici..." class="key-input">
+    <button id="loginBtn" class="btn-primary">Se Connecter</button>
+    <div id="loginMessage" class="login-message"></div>
+    <div id="private-games" class="hidden">
+      <h3>🎮 Bienvenue dans la zone privée !</h3>
+      <div class="game-list">
+        <div class="game-item">
+          <h4>🍏 Apple of Fortune</h4>
+          <p>Stratégie secrète : commencez toujours par les coins !</p>
+        </div>
+        <div class="game-item">
+          <h4>🚀 Crash</h4>
+          <p>Astuce : retirez votre mise entre 1.80x et 2.00x pour maximiser vos gains.</p>
+        </div>
+        <div class="game-item">
+          <h4>🎰 Lucky Spin</h4>
+          <p>Truc : préférez les mises moyennes pour plus de stabilité.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer id="contact" class="footer">
+    <p>&copy; 2025 Rocket Games. Tous droits réservés.</p>
+    <p>Contact : <a href="mailto:Houdoufinance@gmail.com" style="color: #0f0;">Houdoufinance@gmail.com</a></p>
+  </footer>
+
+  <script src="script.js"></script>
+  <script>
+    // Vérification de paiement
+    function checkPaymentStatus() {
+      return localStorage.getItem('paymentCompleted') === 'true';
+    }
+
+    // Fonction pour générer la clé après paiement
+    function generateKey() {
+      if (checkPaymentStatus()) {
+        // Si le paiement est effectué
+        document.getElementById('generatedKey').classList.remove('hidden');
+        document.getElementById('generatedKey').innerText = 'Votre clé : ' + Math.random().toString(36).substring(2, 15);
+        document.getElementById('paymentStatusMessage').classList.add('hidden');
+      } else {
+        // Si le paiement n'est pas effectué
+        document.getElementById('paymentStatusMessage').classList.remove('hidden');
+        document.getElementById('paymentStatusMessage').innerText = 'Vous devez payer avant de pouvoir générer la clé.';
+      }
+    }
+
+    // Lorsque l'utilisateur clique sur le lien PayPal, on suppose qu'il a payé
+    document.getElementById('paypalLink').addEventListener('click', function () {
+      setTimeout(function () {
+        // Simule l'achèvement du paiement après un délai
+        localStorage.setItem('paymentCompleted', 'true');
+        // Active le bouton après le paiement
+        document.getElementById('generateKeyBtn').disabled = false;
+      }, 2000); // Délai de 2 secondes avant de marquer le paiement comme complété
+    });
+  </script>
+  <script  src="js.js"></script>
+</body>
+</html>
